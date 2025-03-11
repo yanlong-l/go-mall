@@ -10,13 +10,13 @@ import (
 
 func main() {
 	server := gin.Default()
-	server.GET("/", func(ctx *gin.Context) {
+	server.GET("/ping", func(ctx *gin.Context) {
 		logger.ZapLoggerTest(ctx)
 		ctx.JSON(http.StatusOK, gin.H{
 			"message": "Pong",
 		})
 	})
-	server.GET("config-read", func(ctx *gin.Context) {
+	server.GET("/config-read", func(ctx *gin.Context) {
 		db := config.Database
 		app := config.App
 		ctx.JSON(http.StatusOK, gin.H{
