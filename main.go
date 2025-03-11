@@ -4,12 +4,14 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/yanlong-l/go-mall/common/logger"
 	"github.com/yanlong-l/go-mall/config"
 )
 
 func main() {
 	server := gin.Default()
 	server.GET("/", func(ctx *gin.Context) {
+		logger.ZapLoggerTest(ctx)
 		ctx.JSON(http.StatusOK, gin.H{
 			"message": "Pong",
 		})
