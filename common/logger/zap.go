@@ -11,15 +11,6 @@ import (
 )
 
 var _logger *zap.Logger
-
-func ZapLoggerTest(data interface{}) {
-	_logger.Info("test for zap init",
-		zap.Any("app", config.App),
-		zap.Any("database", config.Database),
-		zap.Any("data", "快乐池塘栽种了梦想就变成海洋\n鼓的眼睛大嘴巴同样唱的响亮\n借我一双小翅膀就能飞向太阳\n我相信奇迹就在身上\n啦......\n有你相伴 leap frog\n啦......\n自信成长有你相伴 leap frog\n快乐的一只小青蛙 leap frog\n快乐的一只小青蛙 leap frog\n(rap)快乐的池塘里面有只小青蛙\n它跳起舞来就像被王子附体了\n酷酷的眼神,没有哪只青蛙能比美\n总有一天它会被公主唤醒了"),
-	)
-}
-
 func init() {
 	encoderConfig := zap.NewProductionEncoderConfig()
 	encoderConfig.EncodeTime = zapcore.ISO8601TimeEncoder
