@@ -12,7 +12,7 @@ type response struct {
 	Msg        string      `json:"msg"`
 	Data       interface{} `json:"data,omitempty"`
 	RequestId  string      `json:"request_id,omitempty"`
-	Pagination *pagination `json:"pagination,omitempty"`
+	Pagination *Pagination `json:"pagination,omitempty"`
 }
 
 func NewResponse(ctx *gin.Context) *response {
@@ -20,7 +20,7 @@ func NewResponse(ctx *gin.Context) *response {
 }
 
 // SetPagination 设置Response的分页信息
-func (r *response) SetPagination(pagination *pagination) *response {
+func (r *response) SetPagination(pagination *Pagination) *response {
 	r.Pagination = pagination
 	return r
 }
