@@ -16,7 +16,7 @@ var configs embed.FS
 
 func init() {
 	// 读取env 环境变量
-	env, exist := os.LookupEnv("Env")
+	env, exist := os.LookupEnv("env")
 	fmt.Println("env", env)
 	if !exist {
 		panic("Please check your environment variable values")

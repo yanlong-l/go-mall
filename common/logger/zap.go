@@ -2,6 +2,7 @@ package logger
 
 import (
 	"os"
+	"time"
 
 	"github.com/yanlong-l/go-mall/common/enum"
 	"github.com/yanlong-l/go-mall/config"
@@ -11,9 +12,10 @@ import (
 )
 
 var _logger *zap.Logger
+
 func init() {
 	encoderConfig := zap.NewProductionEncoderConfig()
-	encoderConfig.EncodeTime = zapcore.ISO8601TimeEncoder
+	encoderConfig.EncodeTime = customZapTimeEncoder
 	encoder := zapcore.NewJSONEncoder(encoderConfig)
 	fileWriteSyncer := getFileLogWriter()
 
@@ -33,6 +35,10 @@ func init() {
 	}
 	core := zapcore.NewTee(cores...)
 	_logger = zap.New(core)
+}
+
+func customZapTimeEncoder(t time.Time, enc zapcore.PrimitiveArrayEncoder) {
+	enc.AppendString(t.Format("2006-01-02 15:04:05.000"))
 }
 
 func getFileLogWriter() (writeSyncer zapcore.WriteSyncer) {
