@@ -4,11 +4,9 @@ import (
 	"bytes"
 	"embed"
 	"fmt"
+	"github.com/spf13/viper"
 	"os"
 	"slices"
-	"time"
-
-	"github.com/spf13/viper"
 )
 
 //go:embed *.yaml
@@ -36,5 +34,4 @@ func init() {
 
 	vp.UnmarshalKey("app", &App)
 	vp.UnmarshalKey("database", &Database)
-	Database.MaxLifeTime *= time.Second
 }
