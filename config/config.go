@@ -22,9 +22,15 @@ type appConfig struct {
 }
 
 type databaseConfig struct {
-	Type        string        `mapstructure:"type"`
+	Type   string          `mapstructure:"type"`
+	Master DbConnectOption `mapstructure:"master"`
+	Slave  DbConnectOption `mapstructure:"slave"`
+}
+
+type DbConnectOption struct {
 	DSN         string        `mapstructure:"dsn"`
 	MaxOpenConn int           `mapstructure:"maxopen"`
 	MaxIdleConn int           `mapstructure:"maxidle"`
 	MaxLifeTime time.Duration `mapstructure:"maxlifetime"`
 }
+

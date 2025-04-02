@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"os"
 	"slices"
-	"time"
 
 	"github.com/spf13/viper"
 )
@@ -36,5 +35,4 @@ func init() {
 
 	vp.UnmarshalKey("app", &App)
 	vp.UnmarshalKey("database", &Database)
-	Database.MaxLifeTime *= time.Second
 }

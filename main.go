@@ -4,6 +4,7 @@ import (
 	"github.com/yanlong-l/go-mall/api/router"
 	"github.com/yanlong-l/go-mall/common/enum"
 	"github.com/yanlong-l/go-mall/config"
+	_ "github.com/yanlong-l/go-mall/dal/dao"
 
 	"github.com/gin-gonic/gin"
 )
