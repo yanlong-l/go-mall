@@ -5,6 +5,7 @@ import "time"
 var (
 	App      *appConfig
 	Database *databaseConfig
+	Redis    *redisConfig
 )
 
 type appConfig struct {
@@ -34,3 +35,10 @@ type DbConnectOption struct {
 	MaxLifeTime time.Duration `mapstructure:"maxlifetime"`
 }
 
+// Redis 配置
+type redisConfig struct {
+	Addr     string `mapstructure:"addr"`
+	Password string `mapstructure:"password"`
+	PoolSize int    `mapstructure:"pool_size"`
+	DB       int    `mapstructure:"db"`
+}
