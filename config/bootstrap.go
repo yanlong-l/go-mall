@@ -4,9 +4,10 @@ import (
 	"bytes"
 	"embed"
 	"fmt"
-	"github.com/spf13/viper"
 	"os"
 	"slices"
+
+	"github.com/spf13/viper"
 )
 
 //go:embed *.yaml
@@ -34,4 +35,5 @@ func init() {
 
 	vp.UnmarshalKey("app", &App)
 	vp.UnmarshalKey("database", &Database)
+	vp.UnmarshalKey("redis", &Redis)
 }

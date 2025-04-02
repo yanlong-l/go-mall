@@ -21,8 +21,8 @@ func TestConfigRead(ctx *gin.Context) {
 	db := config.Database
 	app := config.App
 	ctx.JSON(http.StatusOK, gin.H{
-		"dsn":         db.DSN,
-		"maxlifetime": db.MaxLifeTime,
+		"dsn":         db.Master.DSN,
+		"maxlifetime": db.Master.MaxLifeTime,
 		"app_name":    app.Name,
 		"app_env":     app.Env,
 	})
@@ -100,5 +100,4 @@ func TestAccessLog(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
 		"status": "ok",
 	})
-	return
 }

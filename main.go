@@ -1,11 +1,12 @@
 package main
 
 import (
+	"github.com/gin-gonic/gin"
 	"github.com/yanlong-l/go-mall/api/router"
 	"github.com/yanlong-l/go-mall/common/enum"
 	"github.com/yanlong-l/go-mall/config"
-
-	"github.com/gin-gonic/gin"
+	_ "github.com/yanlong-l/go-mall/dal/cache"
+	_ "github.com/yanlong-l/go-mall/dal/dao"
 )
 
 func main() {
